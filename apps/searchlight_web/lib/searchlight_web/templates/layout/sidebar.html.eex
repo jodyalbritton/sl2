@@ -1,0 +1,68 @@
+<aside class="sidebar">
+    <div class="scrollbar-inner">
+      <%= if Coherence.current_user(@conn) do %>
+      <div class="user">
+          <div class="user__info" data-toggle="dropdown">
+              <img class="user__img" src="http://via.placeholder.com/150x150" alt="">
+              <div>
+                  <div class="user__name"><%= Coherence.current_user_name(@conn) %> </div>
+                  <div class="user__email"><%= Coherence.current_user(@conn).email %></div>
+              </div>
+          </div>
+
+          <div class="dropdown-menu">
+              <%= link "Profile", to: user_path(@conn, :show, Coherence.current_user(@conn).id), class: "dropdown-item" %>
+              <%= link "Logout", to: session_path(@conn, :delete), method: :delete, class: "dropdown-item" %>
+          </div>
+      </div>
+      <% end %>
+        <ul class="navigation">
+            <li class="<%= get_active_link(@conn, :index, nil)%>">
+              <%= link to: page_path(@conn, :index) do %>
+              <i class="zmdi zmdi-home"></i> Home
+              <% end %>
+            </li>
+            <li class="<%= get_active_link(@conn, :index, "bots")%>">
+              <%= link to: bot_path(@conn, :index) do %>
+              <i class="zmdi zmdi-code-smartphone"></i> Bots
+              <% end %>
+            </li>
+
+            <li class="<%= get_active_link(@conn, :index, "devices")%>">
+              <%= link to: device_path(@conn, :index) do %>
+              <i class="zmdi zmdi-code-smartphone"></i> Devices
+              <% end %>
+            </li>
+
+
+            <li class="<%= get_active_link(@conn, :index, "accounts")%>">
+              <%= link to: account_path(@conn, :index) do %>
+              <i class="zmdi zmdi-collection-case-play"></i> Accounts
+              <% end %>
+            </li>
+
+            <li class="<%= get_active_link(@conn, :index, "tests")%>">
+              <%= link to: test_path(@conn, :index) do %>
+              <i class="zmdi zmdi-collection-case-play"></i> Tests
+              <% end %>
+            </li>
+
+            <li class="navigation__sub">
+                <a href=""><i class="zmdi zmdi-view-list"></i> Admin</a>
+                <ul>
+                  <li class="<%= get_active_link(@conn, :index, ~s(bot_types))%>">
+                    <%= link to: bot_type_path(@conn, :index) do %>
+                    <i class="zmdi zmdi-group"></i> Bot Types
+                    <% end %>
+                  </li>
+
+                  <li class="<%= get_active_link(@conn, :index, ~s(bot_types))%>">
+                    <%= link to: test_type_path(@conn, :index) do %>
+                    <i class="zmdi zmdi-group"></i> Test Types
+                    <% end %>
+                  </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>

@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <h1 class="display-3">Welcome to Searchlight!</h1>
+  <p>A platform for test automation that goes right above 9000</p>
+  <p><a class="btn btn-primary btn-lg" href="#">Learn more</a></p>
+</div>

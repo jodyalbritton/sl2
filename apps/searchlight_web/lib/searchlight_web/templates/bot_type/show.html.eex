@@ -1,0 +1,55 @@
+<header class="content__title">
+    <h1><%= @bot_type.name %></h1>
+    <div class="actions">
+        <%= link to: bot_type_path(@conn, :index), class: "actions__item"  do %>
+          <i class="zmdi zmdi-arrow-left"></i>
+        <% end %>
+    </div>
+</header>
+
+<div class="card">
+  <div class="card-block">
+    <ul>
+
+      <li>
+        <strong>Name:</strong>
+        <%= @bot_type.name %>
+      </li>
+
+      <li>
+        <strong>Slug:</strong>
+        <%= @bot_type.slug %>
+      </li>
+
+      <li>
+        <strong>Controllable:</strong>
+        <%= @bot_type.controllable %>
+      </li>
+
+      <li>
+        <strong>Description:</strong>
+        <%= @bot_type.description %>
+      </li>
+
+      <li>
+        <strong>Default Port:</strong>
+        <%= @bot_type.default_port %>
+      </li>
+
+      <li>
+        <strong>Logo Url:</strong>
+        <%= @bot_type.logo_url %>
+      </li>
+
+      <li>
+        <strong>Developer Url:</strong>
+        <%= @bot_type.developer_url %>
+      </li>
+
+      <li>
+        <strong>Website:</strong>
+        <%= @bot_type.website %>
+      </li>
+    </ul>
+  </div>
+</div>

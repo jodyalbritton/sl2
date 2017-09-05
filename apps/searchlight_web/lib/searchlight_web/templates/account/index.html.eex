@@ -1,0 +1,49 @@
+<!-- Accounts Header -->
+<header class="content__title">
+    <h1>Accounts</h1>
+    <div class="actions">
+        <%= link to: account_path(@conn, :new), class: "actions__item"  do %>
+          <i class="zmdi zmdi-plus"></i>
+        <% end %>
+    </div>
+</header>
+<!-- End Accounts Header -->
+
+<div class="card">
+  <div class="card-block">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Access token</th>
+          <th>Client</th>
+          <th>Client secret</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Shard</th>
+          <th>Enabled</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for account <- @accounts do %>
+          <tr>
+            <td><%= account.access_token %></td>
+            <td><%= account.client_id %></td>
+            <td><%= account.client_secret %></td>
+            <td><%= account.name %></td>
+            <td><%= account.description %></td>
+            <td><%= account.shard %></td>
+            <td><%= account.enabled %></td>
+
+            <td class="text-right">
+              <span><%= link "Show", to: account_path(@conn, :show, account), class: "btn btn-default btn-xs" %></span>
+              <span><%= link "Edit", to: account_path(@conn, :edit, account), class: "btn btn-default btn-xs" %></span>
+              <span><%= link "Delete", to: account_path(@conn, :delete, account), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

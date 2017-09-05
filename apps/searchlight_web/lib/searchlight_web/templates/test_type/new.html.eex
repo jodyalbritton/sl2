@@ -1,0 +1,5 @@
+<h2>New Test type</h2>
+
+<%= render "form.html", Map.put(assigns, :action, test_type_path(@conn, :create)) %>
+
+<span><%= link "Back", to: test_type_path(@conn, :index) %></span>

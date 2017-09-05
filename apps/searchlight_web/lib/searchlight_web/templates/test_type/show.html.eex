@@ -1,0 +1,18 @@
+<h2>Show Test type</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @test_type.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @test_type.description %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: test_type_path(@conn, :edit, @test_type) %></span>
+<span><%= link "Back", to: test_type_path(@conn, :index) %></span>

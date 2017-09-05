@@ -1,0 +1,28 @@
+<h2>Listing Test types</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for test_type <- @test_types do %>
+    <tr>
+      <td><%= test_type.name %></td>
+      <td><%= test_type.description %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: test_type_path(@conn, :show, test_type), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: test_type_path(@conn, :edit, test_type), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: test_type_path(@conn, :delete, test_type), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Test type", to: test_type_path(@conn, :new) %></span>

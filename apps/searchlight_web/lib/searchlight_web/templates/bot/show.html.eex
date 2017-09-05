@@ -1,0 +1,44 @@
+<header class="content__title">
+    <h1><%= @bot.name %></h1>
+    <div class="actions">
+        <%= link to: bot_path(@conn, :index), class: "actions__item"  do %>
+          <i class="zmdi zmdi-arrow-left"></i>
+        <% end %>
+    </div>
+</header>
+
+<div class="card">
+  <div class="card-block">
+    <ul>
+
+      <li>
+        <strong>Name:</strong>
+
+      </li>
+
+      <li>
+        <strong>Host:</strong>
+        <%= @bot.host %>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="card-block">
+    <a href="#">
+      <img id="myImage" src=""></img>
+    </a>
+  </div>
+</div>
+
+
+<script>
+  var d = new Date();
+  var myImageElement = document.getElementById('myImage');
+  myImageElement.src = '<%= @bot.host %>:19999/api/v1/badge.svg?chart=system.cpu';
+
+  setInterval(function() {
+    var myImageElement = document.getElementById('myImage');
+    myImageElement.src = '<%= @bot.host %>:19999/api/v1/badge.svg?chart=system.cpu';
+  }, 5000);
+</script>

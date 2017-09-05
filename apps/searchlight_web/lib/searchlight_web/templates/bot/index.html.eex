@@ -1,0 +1,65 @@
+
+<!-- Bot Header -->
+<header class="content__title">
+    <h1>Bots</h1>
+    <div class="actions">
+        <%= link to: bot_path(@conn, :new), class: "actions__item"  do %>
+          <i class="zmdi zmdi-plus"></i>
+        <% end %>
+    </div>
+</header>
+<!-- End Bot Header -->
+
+<!-- Bot Toolbar -->
+<div class="toolbar">
+  <div class="toolbar__label">
+      <%= length(@bots) %> Bots
+  </div>
+
+  <div class="actions">
+      <i class="actions__item zmdi zmdi-search" data-ma-action="toolbar-search-open"></i>
+  </div>
+
+  <div class="toolbar__search">
+      <input type="text" placeholder="Search...">
+      <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-ma-action="toolbar-search-close"></i>
+  </div>
+</div>
+<!-- End Bot Toolbar -->
+
+<!-- Bot List -->
+<div class="row groups">
+  <%= for bot <- @bots do %>
+    <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+        <div class="groups__item">
+            <%= link to: bot.host do %>
+                <div class="groups__img">
+                    <img class="avatar-img" src="http://via.placeholder.com/150x150" alt="">
+                    <img class="avatar-img" src="http://via.placeholder.com/150x150" alt="">
+                    <img class="avatar-img" src="http://via.placeholder.com/150x150" alt="">
+                    <img class="avatar-img" src="http://via.placeholder.com/150x150" alt="">
+                </div>
+
+                <div class="groups__info">
+                    <strong><%= bot.name %></strong>
+                    <br />
+                    <small><%= bot.host %></small>
+                </div>
+            <% end %>
+
+            <div class="actions">
+                <div class="dropdown actions__item">
+                    <i class="zmdi zmdi-more-vert" data-toggle="dropdown"></i>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <%= link "Show", to: bot_path(@conn, :show, bot.id), class: "dropdown-item" %>
+                        <%= link "Edit", to: bot_path(@conn, :edit, bot.id), class: "dropdown-item" %>
+                        <%= link "Delete", to: bot_path(@conn, :delete, bot.id), method: :delete, class: "dropdown-item", data: [confirm: "Are You Sure?"] %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <% end %>
+</div>
+<!-- End Bot List -->

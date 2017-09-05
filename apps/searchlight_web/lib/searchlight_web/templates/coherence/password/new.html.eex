@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-8 ml-auto mr-auto">
+    <div class="card">
+      <div class="card-block">
+        <h3><%= dgettext "coherence", "Send reset password link" %></h3>
+
+        <%= form_for @changeset, password_path(@conn, :create), [as: :password], fn f  -> %>
+
+          <div class="form-group">
+            <%= required_label f, :email, class: "control-label" %>
+            <%= text_input f, :email, class: "form-control", required: "" %>
+            <%= error_tag f, :email %>
+          </div>
+
+          <div class="form-group">
+            <%= submit dgettext("coherence", "Reset Password"), class: "btn btn-primary" %>
+            <%= link dgettext("coherence", "Cancel"), to: Coherence.Config.logged_out_url("/"), class: "btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

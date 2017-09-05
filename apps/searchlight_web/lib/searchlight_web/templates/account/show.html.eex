@@ -1,0 +1,43 @@
+<h2>Show Account</h2>
+
+<ul>
+
+  <li>
+    <strong>Access token:</strong>
+    <%= @account.access_token %>
+  </li>
+
+  <li>
+    <strong>Client:</strong>
+    <%= @account.client_id %>
+  </li>
+
+  <li>
+    <strong>Client secret:</strong>
+    <%= @account.client_secret %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @account.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @account.description %>
+  </li>
+
+  <li>
+    <strong>Shard:</strong>
+    <%= @account.shard %>
+  </li>
+
+  <li>
+    <strong>Enabled:</strong>
+    <%= @account.enabled %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: account_path(@conn, :edit, @account) %></span>
+<span><%= link "Back", to: account_path(@conn, :index) %></span>

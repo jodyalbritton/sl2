@@ -1,0 +1,50 @@
+<h2>Listing Tests</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Device id set</th>
+      <th>Interation</th>
+      <th>Current iteration</th>
+      <th>Status</th>
+      <th>Is running</th>
+      <th>Is complete</th>
+      <th>State</th>
+      <th>Configuration</th>
+      <th>Shareable</th>
+      <th>Permissions</th>
+      <th>Last status message</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for test <- @tests do %>
+    <tr>
+      <td><%= test.name %></td>
+      <td><%= test.description %></td>
+      <td><%= test.device_id_set %></td>
+      <td><%= test.interation %></td>
+      <td><%= test.current_iteration %></td>
+      <td><%= test.status %></td>
+      <td><%= test.is_running %></td>
+      <td><%= test.is_complete %></td>
+      <td><%= test.state %></td>
+      <td><%= test.configuration %></td>
+      <td><%= test.shareable %></td>
+      <td><%= test.permissions %></td>
+      <td><%= test.last_status_message %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: test_path(@conn, :show, test), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: test_path(@conn, :edit, test), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: test_path(@conn, :delete, test), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Test", to: test_path(@conn, :new) %></span>

@@ -1,0 +1,7 @@
+
+<!-- Bot Type Header -->
+<header class="content__title">
+    <h1>Bot Types</h1>
+</header>
+
+<%= render "form.html", Map.put(assigns, :action, bot_type_path(@conn, :update, @bot_type)) %>

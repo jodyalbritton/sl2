@@ -1,0 +1,73 @@
+<h2>Show Test</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @test.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @test.description %>
+  </li>
+
+  <li>
+    <strong>Device id set:</strong>
+    <%= @test.device_id_set %>
+  </li>
+
+  <li>
+    <strong>Interation:</strong>
+    <%= @test.interation %>
+  </li>
+
+  <li>
+    <strong>Current iteration:</strong>
+    <%= @test.current_iteration %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @test.status %>
+  </li>
+
+  <li>
+    <strong>Is running:</strong>
+    <%= @test.is_running %>
+  </li>
+
+  <li>
+    <strong>Is complete:</strong>
+    <%= @test.is_complete %>
+  </li>
+
+  <li>
+    <strong>State:</strong>
+    <%= @test.state %>
+  </li>
+
+  <li>
+    <strong>Configuration:</strong>
+    <%= @test.configuration %>
+  </li>
+
+  <li>
+    <strong>Shareable:</strong>
+    <%= @test.shareable %>
+  </li>
+
+  <li>
+    <strong>Permissions:</strong>
+    <%= @test.permissions %>
+  </li>
+
+  <li>
+    <strong>Last status message:</strong>
+    <%= @test.last_status_message %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: test_path(@conn, :edit, @test) %></span>
+<span><%= link "Back", to: test_path(@conn, :index) %></span>

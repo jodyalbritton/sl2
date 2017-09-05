@@ -1,0 +1,54 @@
+<header class="content__title">
+    <h1><%= @user.name %></h1>
+    <div class="actions">
+        <%= link to: "/", class: "actions__item"  do %>
+          <i class="zmdi zmdi-arrow-left"></i>
+        <% end %>
+    </div>
+</header>
+
+<div class="card">
+  <div class="card-block">
+    <ul>
+      <li>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </li>
+
+      <li>
+        <strong>Locked?</strong>
+        <%= if User.locked? @user do %>
+           Yes -
+          <%= link "Unlock User!", to: user_path(@conn, :unlock, @user.id), "method": :put %>
+        <% else %>
+          No
+        <% end %>
+      </li>
+
+      <li>
+        <strong>Confirmed?</strong>
+        <%= if User.confirmed? @user do %>
+          Yes
+        <% else %>
+          No -
+          <%= link "Confirm User!", to: user_path(@conn, :confirm, @user.id), "method": :put %>
+        <% end %>
+      </li>
+
+      <li>
+        <strong>Active?</strong>
+        <%= if @user.active do %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+      </li>
+
+      <li>
+        <strong>Sign in count:</strong>
+        <%= @user.sign_in_count %>
+      </li>
+
+    </ul>
+  </div>
+</div>

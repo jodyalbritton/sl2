@@ -1,0 +1,40 @@
+
+<!-- Bot Type Header -->
+<header class="content__title">
+    <h1>Bot Types</h1>
+    <div class="actions">
+        <%= link to: bot_type_path(@conn, :new), class: "actions__item"  do %>
+          <i class="zmdi zmdi-plus"></i>
+        <% end %>
+    </div>
+</header>
+
+<div class="card">
+  <div class="card-block">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for bot_type <- @bot_types do %>
+            <tr>
+              <td><%= bot_type.name %></td>
+              <td><%= bot_type.description %></td>
+
+              <td class="text-right">
+                <span><%= link "Show", to: bot_type_path(@conn, :show, bot_type), class: "btn btn-default btn-xs" %></span>
+                <span><%= link "Edit", to: bot_type_path(@conn, :edit, bot_type), class: "btn btn-default btn-xs" %></span>
+                <span><%= link "Delete", to: bot_type_path(@conn, :delete, bot_type), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+              </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Bot Header -->

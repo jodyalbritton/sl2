@@ -1,0 +1,57 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="card">
+    <div class="card-block">
+      <%= if @changeset.action do %>
+        <div class="alert alert-danger">
+          <p>Oops, something went wrong! Please check the errors below.</p>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= label f, :access_token, class: "control-label" %>
+        <%= text_input f, :access_token, class: "form-control" %>
+        <%= error_tag f, :access_token %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :client_id, class: "control-label" %>
+        <%= text_input f, :client_id, class: "form-control" %>
+        <%= error_tag f, :client_id %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :client_secret, class: "control-label" %>
+        <%= text_input f, :client_secret, class: "form-control" %>
+        <%= error_tag f, :client_secret %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :name, class: "control-label" %>
+        <%= text_input f, :name, class: "form-control" %>
+        <%= error_tag f, :name %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :description, class: "control-label" %>
+        <%= text_input f, :description, class: "form-control" %>
+        <%= error_tag f, :description %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :shard, class: "control-label" %>
+        <%= text_input f, :shard, class: "form-control" %>
+        <%= error_tag f, :shard %>
+      </div>
+
+      <div class="form-group">
+        <%= label f, :enabled, class: "control-label" %>
+        <%= checkbox f, :enabled, class: "checkbox" %>
+        <%= error_tag f, :enabled %>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= submit "Submit", class: "btn btn-primary" %>
+      <%= link "Back", to: account_path(@conn, :index) %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Searchlight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="Manage Bots" name="description" />
+    <meta content="Jody Albritton" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Searchlight</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body data-ma-theme="blue-grey">
+    <main class="main">
+      <%= render "flash.html", conn: @conn %>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

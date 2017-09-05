@@ -1,0 +1,83 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= text_input f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :interation, class: "control-label" %>
+    <%= number_input f, :interation, class: "form-control" %>
+    <%= error_tag f, :interation %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :current_iteration, class: "control-label" %>
+    <%= number_input f, :current_iteration, class: "form-control" %>
+    <%= error_tag f, :current_iteration %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :status, class: "control-label" %>
+    <%= text_input f, :status, class: "form-control" %>
+    <%= error_tag f, :status %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_running, class: "control-label" %>
+    <%= checkbox f, :is_running, class: "checkbox" %>
+    <%= error_tag f, :is_running %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :is_complete, class: "control-label" %>
+    <%= text_input f, :is_complete, class: "form-control" %>
+    <%= error_tag f, :is_complete %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :state, class: "control-label" %>
+    <%= text_input f, :state, class: "form-control" %>
+    <%= error_tag f, :state %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :configuration, class: "control-label" %>
+    <%= text_input f, :configuration, class: "form-control" %>
+    <%= error_tag f, :configuration %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :shareable, class: "control-label" %>
+    <%= checkbox f, :shareable, class: "checkbox" %>
+    <%= error_tag f, :shareable %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :permissions, class: "control-label" %>
+    <%= text_input f, :permissions, class: "form-control" %>
+    <%= error_tag f, :permissions %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :last_status_message, class: "control-label" %>
+    <%= text_input f, :last_status_message, class: "form-control" %>
+    <%= error_tag f, :last_status_message %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
