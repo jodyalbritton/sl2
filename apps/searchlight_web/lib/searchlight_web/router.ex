@@ -47,6 +47,7 @@ defmodule SearchlightWeb.Router do
    pipe_through :protected
 
    # add protected resources below
+    resources "/dashboards", DashboardController
     resources "/bots", BotController
     resources "/bot_types", BotTypeController
     resources "/users", UserController
@@ -59,7 +60,7 @@ defmodule SearchlightWeb.Router do
     resources "/test_types", TestTypeController
     resources "/tests", TestController
 
-    get "/", PageController, :index
+    get "/", DashboardController, :index
     put "/lock/:id", UserController, :lock
     put "/unlock/:id", UserController, :unlock
     put "/confirm/:id", UserController, :confirm

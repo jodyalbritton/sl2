@@ -1,0 +1,28 @@
+<h2>Show Dashboard</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @dashboard.name %>
+  </li>
+
+  <li>
+    <strong>Shareable:</strong>
+    <%= @dashboard.shareable %>
+  </li>
+
+  <li>
+    <strong>Default:</strong>
+    <%= @dashboard.default %>
+  </li>
+
+  <li>
+    <strong>Settings:</strong>
+    <%= @dashboard.settings %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: dashboard_path(@conn, :edit, @dashboard) %></span>
+<span><%= link "Back", to: dashboard_path(@conn, :index) %></span>

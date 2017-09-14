@@ -18,7 +18,7 @@
       <% end %>
         <ul class="navigation">
             <li class="<%= get_active_link(@conn, :index, nil)%>">
-              <%= link to: page_path(@conn, :index) do %>
+              <%= link to: dashboard_path(@conn, :index) do %>
               <i class="zmdi zmdi-home"></i> Home
               <% end %>
             </li>

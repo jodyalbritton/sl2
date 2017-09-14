@@ -1,33 +1,42 @@
-<h2>Show Device</h2>
+<!-- Device Header -->
+<header class="content__title">
+    <h1>Devices</h1>
+    <div class="actions">
+        <%= link to: device_path(@conn, :index), class: "actions__item"  do %>
+          <i class="zmdi zmdi-arrow-back"></i>
+        <% end %>
+    </div>
+</header>
+<!-- End Device Header -->
+<div class="card">
+  <div class="card-block">
+    <ul>
 
-<ul>
+      <li>
+        <strong>Device uuid:</strong>
+        <%= @device.device_uuid %>
+      </li>
 
-  <li>
-    <strong>Device uuid:</strong>
-    <%= @device.device_uuid %>
-  </li>
+      <li>
+        <strong>Display name:</strong>
+        <%= @device.display_name %>
+      </li>
 
-  <li>
-    <strong>Display name:</strong>
-    <%= @device.display_name %>
-  </li>
+      <li>
+        <strong>Label:</strong>
+        <%= @device.label %>
+      </li>
 
-  <li>
-    <strong>Label:</strong>
-    <%= @device.label %>
-  </li>
+      <li>
+        <strong>Capabilities:</strong>
+        <%= @device.capabilities %>
+      </li>
 
-  <li>
-    <strong>Capabilities:</strong>
-    <%= @device.capabilities %>
-  </li>
+      <li>
+        <strong>Device type:</strong>
+        <%= @device.device_type %>
+      </li>
 
-  <li>
-    <strong>Device type:</strong>
-    <%= @device.device_type %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: device_path(@conn, :edit, @device) %></span>
-<span><%= link "Back", to: device_path(@conn, :index) %></span>
+    </ul>
+  </div>
+</div>

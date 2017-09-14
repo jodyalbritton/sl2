@@ -1,0 +1,9 @@
+<!--Dashboard Header -->
+<header class="content__title">
+    <h1>Dashboard</h1>
+    <div class="actions">
+        <%= link to: dashboard_path(@conn, :new), class: "actions__item"  do %>
+          <i class="zmdi zmdi-plus"></i>
+        <% end %>
+    </div>
+</header>

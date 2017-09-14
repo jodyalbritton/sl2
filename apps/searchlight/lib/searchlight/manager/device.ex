@@ -19,6 +19,6 @@ defmodule Searchlight.Manager.Device do
   def changeset(%Device{} = device, attrs) do
     device
     |> cast(attrs, [:device_uuid, :display_name, :label, :capabilities, :device_type])
-    |> validate_required([:device_uuid, :display_name, :label, :capabilities, :device_type])
+    |> validate_required([:device_uuid, :display_name])
   end
 end

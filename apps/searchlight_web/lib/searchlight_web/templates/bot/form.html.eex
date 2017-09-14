@@ -15,15 +15,9 @@
     </div>
 
     <div class="form-group">
-      <%= url_input f, :host, class: "form-control form-control-sm", placeholder: "Host" %>
+      <%= text_input f, :host, class: "form-control form-control-sm", placeholder: "Host" %>
       <i class="form-group__bar"></i>
       <%= error_tag f, :host %>
-    </div>
-
-    <div class="form-group">
-      <%= url_input f, :claim_code, class: "form-control form-control-sm", placeholder: "Claim Code" %>
-      <i class="form-group__bar"></i>
-      <%= error_tag f, :claim_code %>
     </div>
 
     <div class="form-group">

@@ -1,34 +1,65 @@
-<h2>Listing Devices</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Device uuid</th>
-      <th>Display name</th>
-      <th>Label</th>
-      <th>Capabilities</th>
-      <th>Device type</th>
+<!-- Device Header -->
+<header class="content__title">
+    <h1>Devices</h1>
+    <div class="actions">
+        <%= link to: device_path(@conn, :new), class: "actions__item"  do %>
+          <i class="zmdi zmdi-plus"></i>
+        <% end %>
+    </div>
+</header>
+<!-- End Device Header -->
 
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for device <- @devices do %>
-    <tr>
-      <td><%= device.device_uuid %></td>
-      <td><%= device.display_name %></td>
-      <td><%= device.label %></td>
-      <td><%= device.capabilities %></td>
-      <td><%= device.device_type %></td>
+<!-- Device Toolbar -->
+<div class="toolbar">
+  <div class="toolbar__label">
+      <%= length(@devices) %> Devices
+  </div>
 
-      <td class="text-right">
-        <span><%= link "Show", to: device_path(@conn, :show, device), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: device_path(@conn, :edit, device), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: device_path(@conn, :delete, device), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+  <div class="actions">
+      <i class="actions__item zmdi zmdi-search" data-ma-action="toolbar-search-open"></i>
+  </div>
 
-<span><%= link "New Device", to: device_path(@conn, :new) %></span>
+  <div class="toolbar__search">
+      <input type="text" placeholder="Search...">
+      <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-ma-action="toolbar-search-close"></i>
+  </div>
+</div>
+<!-- End Device Toolbar -->
+
+
+
+<div class="card">
+  <div class="card-block">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Device uuid</th>
+          <th>Display name</th>
+          <th>Label</th>
+          <th>Capabilities</th>
+          <th>Device type</th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+    <%= for device <- @devices do %>
+        <tr>
+          <td><%= device.device_uuid %></td>
+          <td><%= device.display_name %></td>
+          <td><%= device.label %></td>
+          <td><%= device.capabilities %></td>
+          <td><%= device.device_type %></td>
+
+          <td class="text-right">
+            <span><%= link "Show", to: device_path(@conn, :show, device), class: "btn btn-default btn-xs" %></span>
+            <span><%= link "Edit", to: device_path(@conn, :edit, device), class: "btn btn-default btn-xs" %></span>
+            <span><%= link "Delete", to: device_path(@conn, :delete, device), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+          </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
