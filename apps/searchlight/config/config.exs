@@ -22,5 +22,5 @@ config :coherence,
 
 config :coherence, SearchlightWeb.Coherence.Mailer,
   adapter: Swoosh.Adapters.Sendgrid,
-  api_key: "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"
+  api_key: ""
 # %% End Coherence Configuration %%
